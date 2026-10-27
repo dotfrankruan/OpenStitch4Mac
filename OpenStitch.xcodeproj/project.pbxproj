@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A0000000000000000000001 /* OpenStitchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0000000000000000000001 /* OpenStitchApp.swift */; };
+		1A0000000000000000000002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0000000000000000000002 /* AppDelegate.swift */; };
+		1A0000000000000000000003 /* StitchWorkspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0000000000000000000003 /* StitchWorkspace.swift */; };
+		1A0000000000000000000004 /* ImageStitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0000000000000000000004 /* ImageStitcher.swift */; };
+		1A0000000000000000000005 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0000000000000000000005 /* ImageLoader.swift */; };
+		1A0000000000000000000006 /* ImageExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0000000000000000000006 /* ImageExporter.swift */; };
+		1A0000000000000000000007 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0000000000000000000007 /* ContentView.swift */; };
+		1A0000000000000000000008 /* ScreenshotRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0000000000000000000008 /* ScreenshotRow.swift */; };
+		1A0000000000000000000009 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0000000000000000000009 /* ResultView.swift */; };
+		1A000000000000000000000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B000000000000000000000A /* Assets.xcassets */; };
+		1A000000000000000000000B /* ImageStitcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B000000000000000000000B /* ImageStitcherTests.swift */; };
+		1A000000000000000000000C /* QAExtraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B000000000000000000000C /* QAExtraTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		210000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E0000000000000000000003 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E0000000000000000000001;
+			remoteInfo = OpenStitch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1B0000000000000000000001 /* OpenStitchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenStitchApp.swift; sourceTree = "<group>"; };
+		1B0000000000000000000002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1B0000000000000000000003 /* StitchWorkspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StitchWorkspace.swift; sourceTree = "<group>"; };
+		1B0000000000000000000004 /* ImageStitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStitcher.swift; sourceTree = "<group>"; };
+		1B0000000000000000000005 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		1B0000000000000000000006 /* ImageExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExporter.swift; sourceTree = "<group>"; };
+		1B0000000000000000000007 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1B0000000000000000000008 /* ScreenshotRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotRow.swift; sourceTree = "<group>"; };
+		1B0000000000000000000009 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		1B000000000000000000000A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1B000000000000000000000B /* ImageStitcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStitcherTests.swift; sourceTree = "<group>"; };
+		1B000000000000000000000C /* QAExtraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAExtraTests.swift; sourceTree = "<group>"; };
+		1B000000000000000000000D /* OpenStitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenStitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B000000000000000000000E /* OpenStitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenStitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D0000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D0000000000000000000005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C0000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				1C0000000000000000000002 /* OpenStitch */,
+				1C0000000000000000000006 /* OpenStitchTests */,
+				1C0000000000000000000007 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1C0000000000000000000002 /* OpenStitch */ = {
+			isa = PBXGroup;
+			children = (
+				1B0000000000000000000001 /* OpenStitchApp.swift */,
+				1B0000000000000000000002 /* AppDelegate.swift */,
+				1C0000000000000000000004 /* Model */,
+				1C0000000000000000000003 /* Stitching */,
+				1C0000000000000000000005 /* Views */,
+				1B000000000000000000000A /* Assets.xcassets */,
+			);
+			path = OpenStitch;
+			sourceTree = "<group>";
+		};
+		1C0000000000000000000003 /* Stitching */ = {
+			isa = PBXGroup;
+			children = (
+				1B0000000000000000000004 /* ImageStitcher.swift */,
+				1B0000000000000000000005 /* ImageLoader.swift */,
+				1B0000000000000000000006 /* ImageExporter.swift */,
+			);
+			path = Stitching;
+			sourceTree = "<group>";
+		};
+		1C0000000000000000000004 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B0000000000000000000003 /* StitchWorkspace.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1C0000000000000000000005 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1B0000000000000000000007 /* ContentView.swift */,
+				1B0000000000000000000008 /* ScreenshotRow.swift */,
+				1B0000000000000000000009 /* ResultView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1C0000000000000000000006 /* OpenStitchTests */ = {
+			isa = PBXGroup;
+			children = (
+				1B000000000000000000000B /* ImageStitcherTests.swift */,
+				1B000000000000000000000C /* QAExtraTests.swift */,
+			);
+			path = OpenStitchTests;
+			sourceTree = "<group>";
+		};
+		1C0000000000000000000007 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B000000000000000000000D /* OpenStitch.app */,
+				1B000000000000000000000E /* OpenStitchTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1E0000000000000000000001 /* OpenStitch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F0000000000000000000002 /* Build configuration list for PBXNativeTarget "OpenStitch" */;
+			buildPhases = (
+				1D0000000000000000000001 /* Sources */,
+				1D0000000000000000000002 /* Frameworks */,
+				1D0000000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenStitch;
+			productName = OpenStitch;
+			productReference = 1B000000000000000000000D /* OpenStitch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1E0000000000000000000002 /* OpenStitchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F0000000000000000000003 /* Build configuration list for PBXNativeTarget "OpenStitchTests" */;
+			buildPhases = (
+				1D0000000000000000000004 /* Sources */,
+				1D0000000000000000000005 /* Frameworks */,
+				1D0000000000000000000006 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				220000000000000000000001 /* PBXTargetDependency */,
+			);
+			name = OpenStitchTests;
+			productName = OpenStitchTests;
+			productReference = 1B000000000000000000000E /* OpenStitchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1E0000000000000000000003 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					1E0000000000000000000001 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					1E0000000000000000000002 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 1E0000000000000000000001;
+					};
+				};
+			};
+			buildConfigurationList = 1F0000000000000000000001 /* Build configuration list for PBXProject "OpenStitch" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1C0000000000000000000001;
+			productRefGroup = 1C0000000000000000000007 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1E0000000000000000000001 /* OpenStitch */,
+				1E0000000000000000000002 /* OpenStitchTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D0000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A000000000000000000000A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D0000000000000000000006 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D0000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A0000000000000000000001 /* OpenStitchApp.swift in Sources */,
+				1A0000000000000000000002 /* AppDelegate.swift in Sources */,
+				1A0000000000000000000003 /* StitchWorkspace.swift in Sources */,
+				1A0000000000000000000004 /* ImageStitcher.swift in Sources */,
+				1A0000000000000000000005 /* ImageLoader.swift in Sources */,
+				1A0000000000000000000006 /* ImageExporter.swift in Sources */,
+				1A0000000000000000000007 /* ContentView.swift in Sources */,
+				1A0000000000000000000008 /* ScreenshotRow.swift in Sources */,
+				1A0000000000000000000009 /* ResultView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D0000000000000000000004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A000000000000000000000B /* ImageStitcherTests.swift in Sources */,
+				1A000000000000000000000C /* QAExtraTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		220000000000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E0000000000000000000001 /* OpenStitch */;
+			targetProxy = 210000000000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		200000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		200000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		200000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OpenStitch;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "OpenStitch. All processing happens on this Mac.";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frankruan.OpenStitchMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		200000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OpenStitch;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "OpenStitch. All processing happens on this Mac.";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frankruan.OpenStitchMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		200000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frankruan.OpenStitchMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenStitch.app/Contents/MacOS/OpenStitch";
+			};
+			name = Debug;
+		};
+		200000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.frankruan.OpenStitchMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenStitch.app/Contents/MacOS/OpenStitch";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F0000000000000000000001 /* Build configuration list for PBXProject "OpenStitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				200000000000000000000001 /* Debug */,
+				200000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F0000000000000000000002 /* Build configuration list for PBXNativeTarget "OpenStitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				200000000000000000000003 /* Debug */,
+				200000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F0000000000000000000003 /* Build configuration list for PBXNativeTarget "OpenStitchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				200000000000000000000005 /* Debug */,
+				200000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1E0000000000000000000003 /* Project object */;
+}

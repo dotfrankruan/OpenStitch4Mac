@@ -1,0 +1,17 @@
+.DS_Store
+DerivedData/
+build/
+.build/
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+
+# Verification artifacts
+Verification/*.png
+Verification/out/
+
+# Per-teammate build directories
+.qa-build/
+.review-build/
+.docs-build/
