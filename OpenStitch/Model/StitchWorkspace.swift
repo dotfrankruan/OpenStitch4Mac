@@ -47,6 +47,13 @@ final class StitchWorkspace {
     /// and reported, matching the iOS app's explicit-error behaviour.
     func add(urls: [URL]) async {
         guard !urls.isEmpty else { return }
+        guard !isStitching else {
+            alert = AlertMessage(
+                title: "Please wait",
+                message: "Finish the current stitch before adding more screenshots."
+            )
+            return
+        }
 
         isLoading = true
         alert = nil
@@ -61,9 +68,19 @@ final class StitchWorkspace {
             )
             return
         }
-        if candidates.count > maximumSelectionCount {
-            candidates = Array(candidates.prefix(maximumSelectionCount))
-            notices.append("You can add up to \(maximumSelectionCount) screenshots at once, so only the first \(maximumSelectionCount) files were added.")
+
+        // The cap is on the total workspace size, not on one import.
+        let remaining = max(0, maximumSelectionCount - screenshots.count)
+        guard remaining > 0 else {
+            alert = AlertMessage(
+                title: "Screenshot limit reached",
+                message: "OpenStitch supports up to \(maximumSelectionCount) screenshots at a time. Remove some before adding more."
+            )
+            return
+        }
+        if candidates.count > remaining {
+            candidates = Array(candidates.prefix(remaining))
+            notices.append("OpenStitch supports up to \(maximumSelectionCount) screenshots at a time, so \(remaining) of the selected files were added.")
         }
 
         let imported = await Task.detached(priority: .userInitiated) { () -> [ImportedScreenshot] in
@@ -79,7 +96,7 @@ final class StitchWorkspace {
                         url: url,
                         pixelWidth: metadata.pixelWidth,
                         pixelHeight: metadata.pixelHeight,
-                        thumbnail: SendableImage(cgImage: thumbnail)
+                        thumbnail: thumbnail
                     )
                 )
             }
@@ -102,7 +119,7 @@ final class StitchWorkspace {
                 url: item.url,
                 pixelWidth: item.pixelWidth,
                 pixelHeight: item.pixelHeight,
-                thumbnail: item.thumbnail.cgImage
+                thumbnail: item.thumbnail
             )
         })
         result = nil
@@ -155,7 +172,9 @@ final class StitchWorkspace {
 
         let urls = screenshots.map(\.url)
         do {
-            let boxed = try await Task.detached(priority: .userInitiated) { () -> SendableBox<StitchResult> in
+            // `CGImage` is immutable and Sendable, so the decoded screenshots and the
+            // result can be produced off the main actor without extra wrappers.
+            let stitched = try await Task.detached(priority: .userInitiated) { () -> StitchResult in
                 var images: [CGImage] = []
                 images.reserveCapacity(urls.count)
                 for (index, url) in urls.enumerated() {
@@ -164,10 +183,10 @@ final class StitchWorkspace {
                     }
                     images.append(image)
                 }
-                return SendableBox(value: try ImageStitcher().stitch(images))
+                return try ImageStitcher().stitch(images)
             }.value
 
-            result = boxed.value
+            result = stitched
             isShowingResult = true
         } catch {
             presentError(error)
@@ -189,5 +208,5 @@ private struct ImportedScreenshot: Sendable {
     let url: URL
     let pixelWidth: Int
     let pixelHeight: Int
-    let thumbnail: SendableImage
+    let thumbnail: CGImage
 }

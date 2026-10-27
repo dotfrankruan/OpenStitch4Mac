@@ -32,6 +32,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+        true
+    }
+
     func application(_ application: NSApplication, open urls: [URL]) {
         let images = urls.filter { ImageLoader.isSupportedImage($0) }
         guard !images.isEmpty else { return }

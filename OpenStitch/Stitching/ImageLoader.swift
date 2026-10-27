@@ -3,18 +3,6 @@ import Foundation
 import ImageIO
 import UniformTypeIdentifiers
 
-/// A tiny wrapper that lets an immutable `CGImage` cross a concurrency boundary.
-/// `CGImage` is documented as immutable and thread safe; it simply is not annotated
-/// `Sendable` by the SDK.
-struct SendableImage: @unchecked Sendable {
-    let cgImage: CGImage
-}
-
-/// A wrapper used to hand a non-`Sendable` stitching result back to the main actor.
-struct SendableBox<Value>: @unchecked Sendable {
-    let value: Value
-}
-
 /// Reads images from disk (with correct orientation handling) and encodes PNGs.
 enum ImageLoader {
     struct Metadata: Sendable, Equatable {

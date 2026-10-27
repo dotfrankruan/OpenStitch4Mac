@@ -46,17 +46,20 @@ struct ScreenshotRow: View {
                 }
                 .disabled(index == 0)
                 .help("Move screenshot \(index + 1) up")
+                .accessibilityLabel("Move screenshot \(index + 1) up")
 
                 Button(action: moveDown) {
                     Image(systemName: "arrow.down")
                 }
                 .disabled(index == count - 1)
                 .help("Move screenshot \(index + 1) down")
+                .accessibilityLabel("Move screenshot \(index + 1) down")
 
                 Button(role: .destructive, action: remove) {
                     Image(systemName: "trash")
                 }
                 .help("Remove screenshot \(index + 1)")
+                .accessibilityLabel("Remove screenshot \(index + 1)")
             }
             .buttonStyle(.borderless)
             .controlSize(.regular)

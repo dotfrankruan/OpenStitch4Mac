@@ -19,6 +19,7 @@
 		1A000000000000000000000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B000000000000000000000A /* Assets.xcassets */; };
 		1A000000000000000000000B /* ImageStitcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B000000000000000000000B /* ImageStitcherTests.swift */; };
 		1A000000000000000000000C /* QAExtraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B000000000000000000000C /* QAExtraTests.swift */; };
+		1A000000000000000000000D /* LongImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0000000000000000000010 /* LongImagePreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		1B000000000000000000000C /* QAExtraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAExtraTests.swift; sourceTree = "<group>"; };
 		1B000000000000000000000D /* OpenStitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenStitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B000000000000000000000E /* OpenStitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenStitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B000000000000000000000F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B0000000000000000000010 /* LongImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongImagePreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 				1C0000000000000000000003 /* Stitching */,
 				1C0000000000000000000005 /* Views */,
 				1B000000000000000000000A /* Assets.xcassets */,
+				1B000000000000000000000F /* Info.plist */,
 			);
 			path = OpenStitch;
 			sourceTree = "<group>";
@@ -112,6 +116,7 @@
 				1B0000000000000000000007 /* ContentView.swift */,
 				1B0000000000000000000008 /* ScreenshotRow.swift */,
 				1B0000000000000000000009 /* ResultView.swift */,
+				1B0000000000000000000010 /* LongImagePreview.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				1A0000000000000000000007 /* ContentView.swift in Sources */,
 				1A0000000000000000000008 /* ScreenshotRow.swift in Sources */,
 				1A0000000000000000000009 /* ResultView.swift in Sources */,
+				1A000000000000000000000D /* LongImagePreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,10 +328,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_HARDENED_RUNTIME = NO;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = OpenStitch;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "OpenStitch. All processing happens on this Mac.";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = OpenStitch/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.frankruan.OpenStitchMac;
@@ -345,10 +349,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_HARDENED_RUNTIME = NO;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = OpenStitch;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "OpenStitch. All processing happens on this Mac.";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = OpenStitch/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.frankruan.OpenStitchMac;

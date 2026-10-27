@@ -1,4 +1,5 @@
 import AppKit
+import CoreGraphics
 import SwiftUI
 
 /// Modal preview of the stitched long screenshot with the macOS equivalents of the
@@ -7,13 +8,12 @@ struct ResultView: View {
     @Environment(\.dismiss) private var dismiss
     let result: StitchResult
 
-    @State private var preview: CGImage?
     @State private var temporaryFileURL: URL?
     @State private var message: String?
 
     var body: some View {
         NavigationStack {
-            previewContent
+            LongImagePreview(image: result.image)
                 .navigationTitle("Long Screenshot")
                 .safeAreaInset(edge: .bottom) { actionBar }
                 .alert(
@@ -27,46 +27,9 @@ struct ResultView: View {
                 } message: {
                     Text(message ?? "")
                 }
-                .task { await prepare() }
-                .onDisappear { cleanupTemporaryFile() }
+                .task { await prepareShareFile() }
         }
         .frame(minWidth: 900, minHeight: 640)
-    }
-
-    // MARK: - Preview
-
-    @ViewBuilder
-    private var previewContent: some View {
-        if let preview {
-            GeometryReader { proxy in
-                ScrollView([.horizontal, .vertical]) {
-                    let fitWidth = max(240, proxy.size.width - 48)
-                    let scale = min(1, fitWidth / CGFloat(preview.width))
-                    let displayWidth = CGFloat(preview.width) * scale
-                    let displayHeight = CGFloat(preview.height) * scale
-
-                    Image(decorative: preview, scale: 1)
-                        .resizable()
-                        .interpolation(.high)
-                        .frame(width: displayWidth, height: displayHeight)
-                        .padding(24)
-                        .frame(
-                            minWidth: proxy.size.width,
-                            minHeight: proxy.size.height,
-                            alignment: .center
-                        )
-                }
-                .background(Color(nsColor: .underPageBackgroundColor))
-            }
-        } else {
-            VStack(spacing: 14) {
-                ProgressView()
-                    .controlSize(.large)
-                Text("Preparing preview…")
-                    .foregroundStyle(.secondary)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
     }
 
     // MARK: - Action bar
@@ -143,16 +106,19 @@ struct ResultView: View {
     // MARK: - Actions
 
     private func savePNG() {
-        do {
-            let url = try ImageExporter.savePNGWithPanel(
-                result.image,
-                suggestedName: ImageLoader.suggestedFileName()
-            )
-            message = "Saved to \(url.path)."
-        } catch is CancellationError {
-            // The user dismissed the save panel; no message needed.
-        } catch {
-            message = "The image could not be saved: \(error.localizedDescription)"
+        ImageExporter.savePNGWithPanel(
+            result.image,
+            suggestedName: ImageLoader.suggestedFileName()
+        ) { outcome in
+            switch outcome {
+            case .success(let url):
+                message = "Saved to \(url.path)."
+            case .failure(is CancellationError):
+                // The user dismissed the save panel; nothing to report.
+                break
+            case .failure(let error):
+                message = "The image could not be saved: \(error.localizedDescription)"
+            }
         }
     }
 
@@ -164,30 +130,16 @@ struct ResultView: View {
         }
     }
 
-    // MARK: - Preview preparation
+    // MARK: - Sharing
 
-    private func prepare() async {
+    /// The PNG is exported to the temporary directory up front so `ShareLink` and
+    /// "Open in Preview" can hand a real file to the system. The file lives in the
+    /// OS-managed temp directory and is cleaned up by the system.
+    private func prepareShareFile() async {
         let image = result.image
-        let prepared = await Task.detached(priority: .userInitiated) { () -> PreparedResult in
-            // A downscaled copy keeps SwiftUI rendering fast for very tall results while
-            // the full-resolution image is used for every export.
-            let preview = ImageLoader.downscaled(image, maxDimension: 6000)
-            let url = try? ImageLoader.writeTemporaryPNG(image)
-            return PreparedResult(preview: SendableImage(cgImage: preview), temporaryURL: url)
+        let url = await Task.detached(priority: .userInitiated) { () -> URL? in
+            try? ImageLoader.writeTemporaryPNG(image)
         }.value
-
-        preview = prepared.preview.cgImage
-        temporaryFileURL = prepared.temporaryURL
+        temporaryFileURL = url
     }
-
-    private func cleanupTemporaryFile() {
-        guard let temporaryFileURL else { return }
-        try? FileManager.default.removeItem(at: temporaryFileURL)
-        self.temporaryFileURL = nil
-    }
-}
-
-private struct PreparedResult: Sendable {
-    let preview: SendableImage
-    let temporaryURL: URL?
 }

@@ -5,12 +5,16 @@ import UniformTypeIdentifiers
 struct ContentView: View {
     @Environment(StitchWorkspace.self) private var workspace
     @State private var isDropTargeted = false
+    @State private var hasAutoStitched = false
 
     var body: some View {
         @Bindable var workspace = workspace
 
         NavigationStack {
-            Group {
+            // ZStack (rather than Group) keeps the modifiers below attached to a view
+            // with stable identity, so .task/.onChange keep firing when the empty state
+            // swaps to the screenshot list.
+            ZStack {
                 if workspace.screenshots.isEmpty {
                     emptyState
                 } else {
@@ -71,6 +75,9 @@ struct ContentView: View {
                     await loadOpenedFiles()
                     await autoStitchIfRequested()
                 }
+            }
+            .onChange(of: workspace.screenshots.count) { _, _ in
+                Task { await autoStitchIfRequested() }
             }
             .task {
                 await loadOpenedFiles()
@@ -160,7 +167,6 @@ struct ContentView: View {
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
-            .keyboardShortcut(.return, modifiers: .command)
             .disabled(workspace.screenshots.count < 2)
             .help("Find the overlaps and render the long screenshot (⌘↩)")
         }
@@ -232,8 +238,16 @@ struct ContentView: View {
     private func autoStitchIfRequested() async {
         #if DEBUG
         guard ProcessInfo.processInfo.environment["OPENSTITCH_AUTOSTITCH"] == "1" else { return }
-        guard workspace.screenshots.count >= 2 else { return }
-        try? await Task.sleep(for: .milliseconds(500))
+        guard !hasAutoStitched else { return }
+
+        // Files opened by the launcher may still be importing when this runs, so give
+        // the workspace a short, bounded window to receive them before stitching.
+        for _ in 0..<50 where workspace.screenshots.count < 2 || workspace.isBusy {
+            try? await Task.sleep(for: .milliseconds(100))
+        }
+        guard workspace.screenshots.count >= 2, !workspace.isStitching else { return }
+
+        hasAutoStitched = true
         await workspace.stitch()
         #endif
     }
