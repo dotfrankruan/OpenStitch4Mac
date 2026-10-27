@@ -242,7 +242,10 @@ struct ContentView: View {
 
         // Files opened by the launcher may still be importing when this runs, so give
         // the workspace a short, bounded window to receive them before stitching.
-        for _ in 0..<50 where workspace.screenshots.count < 2 || workspace.isBusy {
+        for _ in 0..<50 {
+            if workspace.screenshots.count >= 2, !workspace.isBusy {
+                break
+            }
             try? await Task.sleep(for: .milliseconds(100))
         }
         guard workspace.screenshots.count >= 2, !workspace.isStitching else { return }

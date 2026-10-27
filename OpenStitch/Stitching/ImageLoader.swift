@@ -56,8 +56,6 @@ enum ImageLoader {
         guard let image = CGImageSourceCreateThumbnailAtIndex(source, 0, options as CFDictionary) else {
             return nil
         }
-        // Thumbnail creation can return an image whose long edge overshoots slightly
-        // when the source is small; never let that happen for full-resolution loads.
         guard image.width > 0, image.height > 0 else { return nil }
         return image
     }

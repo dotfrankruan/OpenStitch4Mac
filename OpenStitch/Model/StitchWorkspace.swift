@@ -198,9 +198,6 @@ final class StitchWorkspace {
         alert = AlertMessage(title: title, message: message)
     }
 
-    func dismissResult() {
-        isShowingResult = false
-    }
 }
 
 /// Value type returned by the background import task.

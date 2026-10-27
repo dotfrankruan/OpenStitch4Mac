@@ -28,6 +28,8 @@ struct LongImagePreview: NSViewRepresentable {
 /// the top of the viewport.
 final class LongImageScrollView: NSScrollView {
     private let previewDocument = PreviewDocumentView()
+    /// The document view is flipped, so the origin always means "top of the image".
+    private var needsScrollToTop = true
 
     init() {
         super.init(frame: .zero)
@@ -52,6 +54,7 @@ final class LongImageScrollView: NSScrollView {
             cgImage: image,
             size: NSSize(width: image.width, height: image.height)
         )
+        needsScrollToTop = true
         needsLayout = true
         layoutSubtreeIfNeeded()
     }
@@ -83,6 +86,12 @@ final class LongImageScrollView: NSScrollView {
             width: displayWidth,
             height: displayHeight
         )
+
+        if needsScrollToTop, contentSize.width > 1, contentSize.height > 1 {
+            needsScrollToTop = false
+            contentView.scroll(to: NSPoint(x: 0, y: 0))
+            reflectScrolledClipView(contentView)
+        }
     }
 }
 
